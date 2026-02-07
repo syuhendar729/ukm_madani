@@ -1,0 +1,9 @@
+Deny from all
+
+<Files "*.txt">
+    Deny from all
+</Files>
+
+<Files "*.log">
+    Deny from all
+</Files>

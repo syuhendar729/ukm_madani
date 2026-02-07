@@ -1,0 +1,22 @@
+# Allow all web crawlers access to all content
+User-agent: *
+Allow: /
+
+# Disallow sensitive directories
+Disallow: /admin/
+Disallow: /config/
+Disallow: /logs/
+
+# Allow specific important files
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/images/
+Allow: /assets/uploads/artikel/
+Allow: /assets/uploads/berita/
+Allow: /assets/uploads/galeri/
+
+# Crawl delay (optional - helps prevent server overload)
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://madani.ukm.itera.ac.id/sitemap.php

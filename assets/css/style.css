@@ -1,0 +1,898 @@
+:root {
+    /* Islamic Color Palette */
+    --primary-color: #1a5f3f;
+    --primary-light: #2d8659;
+    --primary-dark: #0f3b26;
+    --secondary-color: #d4af37;
+    --secondary-light: #e6c659;
+    --secondary-dark: #b8941f;
+    --accent-green: #00a86b;
+    --accent-gold: #ffd700;
+    
+    /* Neutral Colors */
+    --text-primary: #2c3e50;
+    --text-secondary: #7f8c8d;
+    --text-light: #95a5a6;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --bg-tertiary: #ecf0f1;
+    --border-color: #e9ecef;
+    --border-light: #f1f3f4;
+    
+    /* Shadows & Effects */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.15);
+    --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.2);
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+    --gradient-secondary: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-light) 100%);
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease-in-out;
+    --transition-normal: 0.3s ease-in-out;
+    --transition-slow: 0.5s ease-in-out;
+    
+    /* Border Radius */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 30px;
+    --radius-full: 50px;
+    
+    /* Spacing */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 3rem;
+    --space-xl: 4rem;
+    --space-2xl: 6rem;
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.7;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--space-sm);
+}
+
+/* Header - PERBAIKAN UTAMA */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.98); /* Lebih solid */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 2px solid var(--border-color); /* Border lebih tegas */
+    z-index: 1000;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-sm); /* Tambah shadow default */
+}
+
+.header.scrolled {
+    background: rgba(255, 255, 255, 1); /* Solid penuh saat scroll */
+    box-shadow: var(--shadow-md);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.navbar {
+    padding: var(--space-sm) 0;
+    transition: padding var(--transition-normal);
+}
+
+.header.scrolled .navbar {
+    padding: calc(var(--space-sm) * 0.75) 0;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Navigation Brand - LOGO TANPA FILTER */
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-family: 'Amiri', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all var(--transition-normal);
+    padding: var(--space-xs) 0;
+}
+
+.nav-brand:hover {
+    transform: scale(1.02);
+    color: var(--primary-dark);
+}
+
+.nav-brand::before {
+    content: '';
+    width: 45px;
+    height: 45px;
+    background-image: url('../images/logo-madani.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* HAPUS SEMUA FILTER - LOGO WARNA ASLI */
+    animation: float 3s ease-in-out infinite;
+    display: block;
+    transition: all var(--transition-normal);
+}
+
+.nav-brand:hover::before {
+    transform: scale(1.05);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-3px); }
+}
+
+/* Navigation Menu */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: var(--space-md);
+    align-items: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 600; /* Lebih bold untuk kontras */
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-normal);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: var(--gradient-secondary);
+    transform: translateX(-50%);
+    transition: width var(--transition-normal);
+    border-radius: 2px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-color);
+    background: rgba(26, 95, 63, 0.08);
+    transform: translateY(-1px);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 90%;
+}
+
+.nav-admin {
+    background: var(--gradient-secondary);
+    color: white !important;
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    box-shadow: var(--shadow-sm);
+}
+
+.nav-admin:hover {
+    background: var(--secondary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    color: white !important;
+}
+
+.nav-admin::after {
+    display: none; /* Hapus underline untuk admin button */
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: var(--space-xs);
+    border: none;
+    background: var(--primary-color);
+    border-radius: var(--radius-sm);
+    gap: 3px;
+}
+
+.mobile-menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+    transition: all var(--transition-normal);
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Loading Screen - LOGO WARNA ASLI */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.loading-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-content {
+    text-align: center;
+    color: white;
+}
+
+.loading-logo {
+    width: 80px;
+    height: 80px;
+    background-image: url('../images/logo-madani.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 auto 1rem;
+    animation: float 2s ease-in-out infinite;
+    /* LOGO WARNA ASLI - TANPA FILTER */
+}
+
+.loading-spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    border-left: 4px solid var(--secondary-color);
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    animation: spin 1s linear infinite;
+}
+
+.arabic-loading {
+    font-family: 'Amiri', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--secondary-color);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.loading-text p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    background: var(--gradient-primary);
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: white;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.arabic {
+    font-family: 'Amiri', serif;
+    font-size: 2rem;
+    font-style: italic;
+    margin-bottom: var(--space-sm);
+    color: var(--secondary-color);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-title {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 900;
+    margin-bottom: var(--space-sm);
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    line-height: 1.1;
+}
+
+.hero-title .highlight {
+    background: var(--gradient-secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: clamp(1.2rem, 4vw, 2rem);
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+    color: var(--secondary-light);
+}
+
+.hero-description {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    margin-bottom: var(--space-lg);
+    opacity: 0.95;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: var(--space-sm);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--space-xl);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: 16px 32px;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    border: 2px solid;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background: var(--secondary-color);
+    color: white;
+    border-color: var(--secondary-color);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+.btn-primary:hover {
+    background: var(--secondary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+}
+
+.btn-outline {
+    background: transparent;
+    color: white;
+    border-color: white;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-xl);
+    margin-top: var(--space-xl);
+}
+
+.stat-item {
+    text-align: center;
+    animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--secondary-color);
+    display: block;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Section Styles */
+.section-padding {
+    padding: var(--space-2xl) 0;
+}
+
+.bg-secondary {
+    background: var(--bg-secondary);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: var(--space-sm);
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--gradient-secondary);
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* About Section - LOGO WARNA ASLI */
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+}
+
+.about-item {
+    margin-bottom: var(--space-lg);
+}
+
+.about-item h3 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.about-item h3 i {
+    color: var(--secondary-color);
+}
+
+.about-item p {
+    margin-bottom: var(--space-sm);
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.about-item ul {
+    list-style: none;
+}
+
+.about-item li {
+    padding: var(--space-xs) 0;
+    color: var(--text-secondary);
+    position: relative;
+    padding-left: var(--space-md);
+    font-size: 1.05rem;
+}
+
+.about-item li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.about-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-image-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+}
+
+.about-main-image {
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 80px; /* Padding untuk logo */
+}
+
+.mosque-icon {
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/logo-madani.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: pulse 4s ease-in-out infinite;
+    /* LOGO WARNA ASLI - TANPA FILTER */
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Footer - LOGO WARNA ASLI */
+.footer {
+    background: var(--text-primary);
+    color: white;
+    padding: var(--space-2xl) 0 var(--space-md);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-xl);
+    margin-bottom: var(--space-lg);
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-sm);
+}
+
+.footer-logo::before {
+    content: '';
+    width: 50px;
+    height: 50px;
+    background-image: url('../images/logo-madani.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* LOGO WARNA ASLI - TANPA FILTER */
+}
+
+.footer-section h3,
+.footer-section h4 {
+    color: var(--secondary-color);
+    margin-bottom: var(--space-sm);
+    font-weight: 700;
+}
+
+.footer-section p {
+    line-height: 1.7;
+    opacity: 0.9;
+    margin-bottom: var(--space-sm);
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    padding: var(--space-xs) 0;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: all var(--transition-normal);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.footer-section ul li a:hover {
+    opacity: 1;
+    color: var(--secondary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .nav-menu {
+        gap: var(--space-sm);
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .about-visual {
+        order: -1;
+    }
+    
+    .about-image-container {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: var(--space-md);
+        gap: var(--space-sm);
+        box-shadow: var(--shadow-lg);
+        border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+        transform: translateY(-20px);
+        opacity: 0;
+        visibility: hidden;
+        transition: all var(--transition-normal);
+    }
+    
+    .nav-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .nav-link {
+        padding: var(--space-sm);
+        border-radius: var(--radius-md);
+        text-align: center;
+        width: 100%;
+    }
+    
+    .nav-brand::before {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: var(--space-md);
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-brand::before {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .loading-logo {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .about-image-container {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .about-main-image {
+        padding: 50px;
+    }
+}
+
+/* Cards dan komponen lainnya tetap sama seperti sebelumnya */
+.grid {
+    display: grid;
+    gap: var(--space-lg);
+}
+
+.grid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+.card {
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    border: 1px solid var(--border-color);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+}
+
+.card-image {
+    height: 250px;
+    background: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.placeholder-image {
+    font-size: 4rem;
+    color: var(--primary-color);
+    opacity: 0.3;
+}
+
+.card-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--primary-color);
+    color: white;
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.card-content {
+    padding: var(--space-md);
+}
+
+.card-meta {
+    display: flex;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-sm);
+    font-size: 0.9rem;
+    color: var(--text-light);
+    flex-wrap: wrap;
+}
+
+.card-meta span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.card-title a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.card-title a:hover {
+    color: var(--primary-color);
+}
+
+.card-excerpt {
+    color: var(--text-secondary);
+    margin: var(--space-sm) 0;
+    line-height: 1.7;
+}
+
+.read-more {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.read-more:hover {
+    color: var(--secondary-color);
+}
+
+.section-footer {
+    text-align: center;
+    margin-top: var(--space-xl);
+}
+
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: var(--space-xl);
+    color: var(--text-secondary);
+}
+
+.empty-icon {
+    font-size: 4rem;
+    margin-bottom: var(--space-sm);
+    opacity: 0.5;
+}
