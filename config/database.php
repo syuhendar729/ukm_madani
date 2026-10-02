@@ -1,10 +1,10 @@
 <?php
 // Konfigurasi Database untuk produksi
-$host = 'localhost'; // Sesuaikan dengan host di server hosting
+$host = '127.0.0.1'; // Sesuaikan dengan host di server hosting
 $port = 3306;        // Sesuaikan dengan port MySQL di server hosting
-$username = 'madani_kramad'; // Ganti dengan username database di hosting
-$password = 'Yang handle Kramad'; // Ganti dengan password yang kuat
-$dbname = 'madani_kramad'; // Ganti dengan nama database di hosting
+$username = 'root'; // Ganti dengan username database di hosting
+$password = 'root123'; // Ganti dengan password yang kuat
+$dbname = 'ukm_madani'; // Ganti dengan nama database di hosting
 
 // Buat koneksi MySQLi dengan port
 $conn = new mysqli($host, $username, $password, $dbname, $port);

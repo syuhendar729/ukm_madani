@@ -19,4 +19,5 @@ Allow: /assets/uploads/galeri/
 Crawl-delay: 1
 
 # Sitemap location
-Sitemap: https://madani.ukm.itera.ac.id/sitemap.php
+# Sitemap: https://madani.ukm.itera.ac.id/sitemap.php
+Sitemap: https://madani.my.id/sitemap.php

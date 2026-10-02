@@ -1,9 +1,11 @@
 <?php
 // Ubah konfigurasi untuk produksi
-define('ENVIRONMENT', 'production'); // Ubah dari 'development' ke 'production'
+/* define('ENVIRONMENT', 'production'); // Ubah dari 'development' ke 'production' */
+define('ENVIRONMENT', 'development'); // Ubah dari 'development' ke 'production'
 define('SITE_NAME', 'UKM Madani');
 define('SITE_DESCRIPTION', 'Mahasiswa Peradaban Islam');
-define('SITE_URL', 'https://madani.ukm.itera.ac.id'); // Ubah dari localhost ke URL produksi
+/* define('SITE_URL', 'https://madani.ukm.itera.ac.id'); // Ubah dari localhost ke URL produksi */
+define('SITE_URL', 'http://192.168.18.186:82'); // Ubah dari localhost ke URL produksi
 
 // Konfigurasi Upload - Sesuaikan path jika perlu
 define('MAX_FILE_SIZE', 5 * 1024 * 1024); // 5MB
