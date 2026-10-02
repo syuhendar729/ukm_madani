@@ -1247,6 +1247,7 @@ $canonical_url = 'https://' . $_SERVER['HTTP_HOST'] . '/artikel-detail.php?slug=
             }
         }
     </style>
+    <link href="assets/css/audit-fixes.css" rel="stylesheet">
 </head>
 <body>
     <header class="header">
@@ -1267,6 +1268,7 @@ $canonical_url = 'https://' . $_SERVER['HTTP_HOST'] . '/artikel-detail.php?slug=
                     <li><a href="berita.php" class="nav-link">Berita</a></li>
                     <li><a href="artikel.php" class="nav-link">Artikel</a></li>
                     <li><a href="galeri.php" class="nav-link">Gallery</a></li>
+                    <li><a href="index.php#donation" class="nav-link">Infaq</a></li>
                     <li><a href="index.php#contact" class="nav-link">Kontak</a></li>
                     <li><a href="artikel.php" class="nav-link back-btn">
                         <i class="fas fa-arrow-left"></i> Kembali
@@ -1330,6 +1332,12 @@ $canonical_url = 'https://' . $_SERVER['HTTP_HOST'] . '/artikel-detail.php?slug=
                 <li class="mobile-nav-item">
                     <a href="index.php#donation" class="mobile-nav-link">
                         <i class="fas fa-hand-holding-heart"></i>
+                        <span>Infaq</span>
+                    </a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="index.php#contact" class="mobile-nav-link">
+                        <i class="fas fa-envelope"></i>
                         <span>Kontak</span>
                     </a>
                 </li>
@@ -1351,9 +1359,9 @@ $canonical_url = 'https://' . $_SERVER['HTTP_HOST'] . '/artikel-detail.php?slug=
                 <li class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></li>
                 <li><a href="artikel.php">Artikel</a></li>
                 <li class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></li>
-                <li><?= htmlspecialchars($artikel['kategori'] ?? 'Artikel') ?></li>
+                <li><span aria-current="page"><?= htmlspecialchars($artikel['kategori'] ?? 'Artikel') ?></span></li>
                 <li class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></li>
-                <li><?= htmlspecialchars(substr($artikel['judul'], 0, 50)) ?><?= strlen($artikel['judul']) > 50 ? '...' : '' ?></li>
+                <li><span aria-current="page"><?= htmlspecialchars(substr($artikel['judul'], 0, 50)) ?><?= strlen($artikel['judul']) > 50 ? '...' : '' ?></span></li>
             </ul>
         </div>
     </div>
@@ -1668,6 +1676,7 @@ $canonical_url = 'https://' . $_SERVER['HTTP_HOST'] . '/artikel-detail.php?slug=
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
     
+    <script src="assets/js/audit-fixes.js"></script>
     <script>
         // Mobile menu functionality
         const hamburgerBtn = document.getElementById('hamburgerBtn');

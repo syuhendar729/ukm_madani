@@ -14,6 +14,7 @@
     
     <!-- Mobile Nav CSS -->
     <link href="assets/css/mobile-nav.css" rel="stylesheet">
+    <link href="assets/css/audit-fixes.css" rel="stylesheet">
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -628,6 +629,7 @@
                     <li><a href="berita.php" class="nav-link">Berita</a></li>
                     <li><a href="artikel.php" class="nav-link">Artikel</a></li>
                     <li><a href="galeri.php" class="nav-link">Galeri</a></li>
+                    <li><a href="index.php#donation" class="nav-link">Infaq</a></li>
                     <li><a href="index.php" class="nav-link back-link">
                         <i class="fas fa-arrow-left"></i> Kembali
                     </a></li>
@@ -729,6 +731,7 @@
 
     <!-- Mobile Navigation JavaScript -->
     <script src="assets/js/mobile-nav.js"></script>
+    <script src="assets/js/audit-fixes.js"></script>
 
     <script>
         // Search form enhancement

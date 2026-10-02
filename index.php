@@ -179,6 +179,7 @@ try {
     
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="assets/css/audit-fixes.css" rel="stylesheet">
     
     <style>
         
@@ -2087,6 +2088,7 @@ try {
                     <li><a href="#articles" class="nav-link">Artikel</a></li>
                     <li><a href="#gallery" class="nav-link">Galeri</a></li>
                     <li><a href="#donation" class="nav-link">Infaq</a></li>
+                    <li><a href="#contact" class="nav-link">Kontak</a></li>
                 </ul>
                 
                 <button class="mobile-toggle" id="mobile-toggle">
@@ -2118,7 +2120,7 @@ try {
                         <i class="fas fa-info-circle"></i>
                         Tentang Kami
                     </a>
-                    <a href="#footer" class="btn btn-outline">
+                    <a href="#contact" class="btn btn-outline">
                         <i class="fas fa-envelope"></i>
                         Hubungi Kami
                     </a>
@@ -2445,44 +2447,14 @@ try {
                 </p>
             </div>
             
-            <div class="donation-content">
-                <div class="donation-form slide-in-left">
-                    <div class="form-header">
-                        <h3>Kritik & Saran Website</h3>
-                        <p>Masukan Anda sangat berharga bagi perkembangan website kami</p>
-                    </div>
-                    
-                    <!-- Google Form Embed -->
-                    <div class="google-form-container">
-                        <iframe 
-                            src="https://forms.gle/QwkuV5RcX61eqcN2A" 
-                            width="100%" 
-                            height="800" 
-                            frameborder="0" 
-                            marginheight="0" 
-                            marginwidth="0"
-                            style="border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-                            Loading…
-                        </iframe>
-                    </div>
-                </div>
-                
+            <div class="donation-content donation-focused">
                 <div class="donation-info slide-in-right">
                     <div class="info-header">
                         <h3>Informasi Rekening</h3>
                         <p>Transfer ke salah satu rekening berikut:</p>
                     </div>
-                    
-                    <div class="qris-section">
-                        <h4>Scan QRIS</h4>
-                        <div class="qris-container">
-                            <div class="qris-placeholder">
-                                <i class="fas fa-qrcode"></i>
-                                <p>QR Code<br>UKM Madani</p>
-                            </div>
-                        </div>
-                        <p class="qris-text">QR Code akan segera tersedia</p>
-                    </div>
+
+                    <p class="qris-status"><i class="fas fa-info-circle"></i> QRIS belum ditampilkan karena aset QRIS resmi yang tervalidasi belum tersedia. Silakan gunakan transfer rekening berikut dan lakukan konfirmasi.</p>
                     
                     <div class="bank-accounts">
                         <div class="bank-item">
@@ -2514,10 +2486,18 @@ try {
                         </div>
                     </div>
                     
-                     <div class="donation-notes">
-        <h4><i class="fas fa-info-circle"></i> Catatan Penting</h4>
-        <ul>
-            <li>Setelah melakukan transfer, kirimkan bukti transfer ke nomor WhatsApp berikut:
+                    <div class="donation-steps">
+                        <strong><i class="fas fa-list-check"></i> Langkah verifikasi</strong>
+                        <ol>
+                            <li>Transfer ke salah satu rekening di atas.</li>
+                            <li>Kirim bukti transfer ke kontak yang sesuai.</li>
+                            <li>Simpan konfirmasi dari panitia.</li>
+                        </ol>
+                    </div>
+
+                    <div class="donation-notes">
+                        <h4><i class="fas fa-info-circle"></i> Konfirmasi Infaq</h4>
+                        <p>Setelah melakukan transfer, kirimkan bukti transfer ke nomor WhatsApp berikut:</p>
                 <div class="contact-container">
                     <span class="contact-label">Ikhwan:</span>
                     <a href="https://wa.me/6281539860169?text=Assalamualaikum%2C%20saya%20ingin%20mengirim%20bukti%20transfer%20infaq%20madani" 
@@ -2534,9 +2514,38 @@ try {
                         +62 852-6935-9166
                     </a>
                 </div>
-            </li>
-        </ul>
-    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Kontak UKM Madani</h2>
+                <p class="section-subtitle">Hubungi kami atau kirimkan masukan untuk pengembangan website.</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-actions slide-in-left">
+                    <a class="contact-action" href="mailto:madani@lk.itera.ac.id">
+                        <i class="fas fa-envelope"></i><span><strong>Email</strong>madani@lk.itera.ac.id</span>
+                    </a>
+                    <a class="contact-action" href="tel:+6287889452909">
+                        <i class="fas fa-phone"></i><span><strong>Telepon / WhatsApp</strong>+62 878-8945-2909</span>
+                    </a>
+                    <div class="contact-action">
+                        <i class="fas fa-location-dot"></i><span><strong>Lokasi</strong>Institut Teknologi Sumatera</span>
+                    </div>
+                </div>
+                <div class="contact-form slide-in-right">
+                    <div class="form-header">
+                        <h3>Kritik & Saran Website</h3>
+                        <p>Masukan Anda sangat berharga bagi perkembangan website kami.</p>
+                    </div>
+                    <div class="google-form-container">
+                        <iframe src="https://forms.gle/QwkuV5RcX61eqcN2A" title="Form Kritik dan Saran Website UKM Madani" width="100%" height="800" loading="lazy" style="border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">Loading…</iframe>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2588,7 +2597,8 @@ try {
                         <li><a href="#news"><i class="fas fa-newspaper"></i> Berita</a></li>
                         <li><a href="#articles"><i class="fas fa-book-open"></i> Artikel</a></li>
                         <li><a href="#gallery"><i class="fas fa-images"></i> Galeri</a></li>
-                        <li><a href="#donation"><i class="fas fa-envelope"></i> Infaq</a></li>
+                        <li><a href="#donation"><i class="fas fa-hand-holding-heart"></i> Infaq</a></li>
+                        <li><a href="#contact"><i class="fas fa-envelope"></i> Kontak</a></li>
                     </ul>
                 </div>
                 
@@ -2613,11 +2623,11 @@ try {
                         </div>
                         <div class="contact-info-item">
                             <i class="fas fa-phone"></i>
-                            <span>+6287889452909</span>
+                            <a href="tel:+6287889452909">+62 878-8945-2909</a>
                         </div>
                         <div class="contact-info-item">
                             <i class="fas fa-envelope"></i>
-                            <span>madani@lk.itera.ac.id</span>
+                            <a href="mailto:madani@lk.itera.ac.id">madani@lk.itera.ac.id</a>
                         </div>
                         <div class="contact-info-item">
                             <i class="fas fa-clock"></i>
@@ -2635,6 +2645,7 @@ try {
         </div>
     </footer>
 
+    <script src="assets/js/audit-fixes.js"></script>
     <!-- JavaScript -->
     <script>
         // Mobile menu toggle

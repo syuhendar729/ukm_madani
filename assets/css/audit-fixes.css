@@ -1,0 +1,267 @@
+/*
+ * Improvements implemented from "ITERA Madani - UI/UX Auditing".
+ * Loaded after each page's legacy styles so the public templates share the
+ * same accessibility and responsive behaviour while they are consolidated.
+ */
+
+html,
+body {
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+img,
+video,
+iframe,
+table {
+    max-width: 100%;
+}
+
+iframe {
+    border: 0;
+}
+
+/* Keep anchors recognisable and expose a dependable keyboard focus state. */
+a:focus-visible,
+button:focus-visible,
+select:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[role="link"]:focus-visible {
+    outline: 3px solid #d4af37 !important;
+    outline-offset: 3px;
+}
+
+.breadcrumb-list a {
+    color: var(--primary-color) !important;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+}
+
+.breadcrumb-list [aria-current="page"] {
+    color: var(--text-secondary);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/* The desktop select and submit control share a usable visual baseline. */
+.filter-container .category-filter,
+.filter-container .date-filter {
+    align-items: stretch;
+}
+
+.filter-container .category-select,
+.filter-container .date-select,
+.filter-container .filter-btn {
+    min-height: 48px;
+}
+
+/* Keep cards compact and let the full card be a real, visible-focus link. */
+a.article-card,
+a.news-card {
+    color: inherit;
+    display: block;
+    text-decoration: none;
+}
+
+a.article-card .article-title,
+a.news-card .news-title {
+    color: var(--text-primary);
+}
+
+a.article-card:hover .article-title,
+a.news-card:hover .news-title,
+a.article-card:focus-visible .article-title,
+a.news-card:focus-visible .news-title {
+    color: var(--primary-color);
+}
+
+.gallery-description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+/* Dense organisation sections remain readable without long empty gaps. */
+.organigram .division-section {
+    margin-bottom: 56px;
+    padding: 20px 0;
+}
+
+.organigram .division-header {
+    margin-bottom: 30px;
+    padding: 24px;
+}
+
+.organigram .division-name {
+    font-size: clamp(1.6rem, 4vw, 2.35rem);
+}
+
+.organigram .avatar-card {
+    padding: 20px;
+}
+
+.contact-section {
+    scroll-margin-top: 96px;
+}
+
+.contact-section .contact-content {
+    grid-template-columns: minmax(0, 0.85fr) minmax(360px, 1.15fr);
+}
+
+.contact-actions {
+    display: grid;
+    gap: 14px;
+}
+
+.contact-action {
+    align-items: center;
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    color: var(--text-primary);
+    display: flex;
+    gap: 12px;
+    padding: 16px;
+    text-decoration: none;
+    transition: transform .2s ease, border-color .2s ease;
+}
+
+.contact-action:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.contact-action i {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.contact-action strong,
+.contact-action span {
+    display: block;
+}
+
+.contact-action span {
+    color: var(--text-secondary);
+    font-size: .9rem;
+}
+
+.donation-content.donation-focused {
+    display: block;
+    margin: 0 auto;
+    max-width: 720px;
+}
+
+.donation-focused .donation-info {
+    width: 100%;
+}
+
+.donation-steps {
+    background: var(--bg-secondary);
+    border-left: 4px solid var(--secondary-color);
+    border-radius: 12px;
+    color: var(--text-secondary);
+    margin: 0 0 24px;
+    padding: 18px 20px;
+}
+
+.donation-steps ol {
+    margin: 10px 0 0 22px;
+}
+
+.donation-steps li + li {
+    margin-top: 8px;
+}
+
+.qris-status {
+    background: #fff8e4;
+    border: 1px solid #e8c869;
+    border-radius: 12px;
+    color: #725800;
+    font-size: .92rem;
+    margin: 0 0 24px;
+    padding: 14px 16px;
+}
+
+body.modal-open .fab,
+body.modal-open .whatsapp-float,
+body.modal-open .whatsapp-button {
+    display: none !important;
+}
+
+@media (max-width: 1024px) {
+    /* The drawer must fully replace—not merely obscure—the underlying page. */
+    .nav-links.mobile,
+    .nav-menu.active {
+        left: 0 !important;
+        max-width: none !important;
+        width: 100% !important;
+    }
+
+    .nav-links.mobile {
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+
+    .mobile-menu {
+        max-width: none !important;
+        width: 100vw !important;
+    }
+
+    .article-layout > .article-main,
+    .news-layout > .news-main {
+        order: 1;
+    }
+
+    .article-layout > .sidebar,
+    .news-layout > .sidebar {
+        order: 2 !important;
+    }
+
+    .contact-section .contact-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links.mobile .nav-link,
+    .mobile-nav-link {
+        color: var(--text-primary) !important;
+        font-weight: 650;
+    }
+
+    .nav-links.mobile .nav-link[aria-current="page"],
+    .mobile-nav-link[aria-current="page"] {
+        background: rgba(26, 95, 63, .12) !important;
+        color: var(--primary-color) !important;
+    }
+
+    .article-main,
+    .news-main {
+        min-width: 0;
+        padding: 24px 18px !important;
+    }
+
+    .article-body,
+    .news-body {
+        overflow-wrap: anywhere;
+    }
+
+    .article-body table,
+    .news-body table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .footer-content {
+        gap: 28px;
+    }
+
+    .footer-section:nth-child(3) {
+        display: none;
+    }
+}
