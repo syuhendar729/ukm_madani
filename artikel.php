@@ -165,6 +165,7 @@ try {
 <html lang="id">
 <head>
     <link href="assets/css/mobile-nav.css" rel="stylesheet">
+    <link href="assets/css/audit-fixes.css" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artikel Pilihan - UKM Madani</title>
@@ -1093,8 +1094,9 @@ try {
                     <li><a href="berita.php" class="nav-link">Berita</a></li>
                     <li><a href="artikel.php" class="nav-link" style="color: var(--primary-color);">Artikel</a></li>
                     <li><a href="galeri.php" class="nav-link">Galeri</a></li>
-                    <li><a href="index.php#contact" class="nav-link back-link">
-                        <i class="fas fa-arrow-left"></i> Kembali
+                    <li><a href="index.php#donation" class="nav-link">Infaq</a></li>
+                    <li><a href="index.php#contact" class="nav-link">
+                        <i class="fas fa-envelope"></i> Kontak
                     </a></li>
                 </ul>
 
@@ -1118,8 +1120,8 @@ try {
                     <li><a href="index.php#donation" class="nav-link">
                         <i class="fas fa-hand-holding-heart"></i> Infaq
                     </a></li>
-                    <li><a href="index.php" class="nav-link back-link">
-                        <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+                    <li><a href="index.php#contact" class="nav-link">
+                        <i class="fas fa-envelope"></i> Kontak
                     </a></li>
                 </ul>
                 
@@ -1192,7 +1194,7 @@ try {
             <?php if (count($artikel_data) > 0): ?>
                 <div class="articles-grid">
                     <?php foreach ($artikel_data as $artikel): ?>
-                    <article class="article-card" onclick="location.href='artikel-detail.php?slug=<?= $artikel['slug'] ?>'">
+                    <a class="article-card" href="artikel-detail.php?slug=<?= urlencode($artikel['slug']) ?>" aria-label="Baca artikel: <?= htmlspecialchars($artikel['judul']) ?>">
                         <div class="article-image">
                             <img src="<?= getImagePath($artikel['gambar'], $artikel['media_id'], $artikel['judul']) ?>" 
                                  alt="<?= htmlspecialchars($artikel['judul']) ?>"
@@ -1228,9 +1230,9 @@ try {
                                 <?php endif; ?>
                             </div>
                             <h3 class="article-title">
-                                <a href="artikel-detail.php?slug=<?= $artikel['slug'] ?>">
+                                <span>
                                     <?= htmlspecialchars($artikel['judul']) ?>
-                                </a>
+                                </span>
                             </h3>
                             <p class="article-excerpt">
                                 <?php 
@@ -1238,11 +1240,11 @@ try {
                                 echo htmlspecialchars($excerpt);
                                 ?>
                             </p>
-                            <a href="artikel-detail.php?slug=<?= $artikel['slug'] ?>" class="read-more">
+                            <span class="read-more">
                                 <i class="fas fa-book-open"></i> Baca Artikel
-                            </a>
+                            </span>
                         </div>
-                    </article>
+                    </a>
                     <?php endforeach; ?>
                 </div>
 
@@ -1296,6 +1298,7 @@ try {
 
  <!-- Mobile Navigation JavaScript -->
     <script src="assets/js/mobile-nav.js"></script>
+    <script src="assets/js/audit-fixes.js"></script>
     
     <script>
         // Auto-submit form on Enter key

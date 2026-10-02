@@ -172,6 +172,7 @@ $bulan_list = [
 <head>
     <meta charset="UTF-8">
     <link href="assets/css/mobile-nav.css" rel="stylesheet">
+    <link href="assets/css/audit-fixes.css" rel="stylesheet">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Berita Terbaru - UKM Madani</title>
@@ -838,8 +839,9 @@ $bulan_list = [
                 <li><a href="berita.php" class="nav-link" style="color: var(--primary-color);">Berita</a></li>
                 <li><a href="artikel.php" class="nav-link">Artikel</a></li>
                 <li><a href="galeri.php" class="nav-link">Galeri</a></li>
-                <li><a href="index.php#contact" class="nav-link back-link">
-                    <i class="fas fa-arrow-left"></i> Kembali
+                <li><a href="index.php#donation" class="nav-link">Infaq</a></li>
+                <li><a href="index.php#contact" class="nav-link">
+                    <i class="fas fa-envelope"></i> Kontak
                 </a></li>
             </ul>
 
@@ -863,8 +865,8 @@ $bulan_list = [
                 <li><a href="index.php#donation" class="nav-link">
                     <i class="fas fa-hand-holding-heart"></i> Infaq
                 </a></li>
-                <li><a href="index.php" class="nav-link back-link">
-                    <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+                <li><a href="index.php#contact" class="nav-link">
+                    <i class="fas fa-envelope"></i> Kontak
                 </a></li>
             </ul>
             
@@ -949,7 +951,7 @@ $bulan_list = [
             <?php if (count($berita_data) > 0): ?>
                 <div class="news-grid">
                     <?php foreach ($berita_data as $berita): ?>
-                    <article class="news-card" onclick="location.href='berita-detail.php?slug=<?= $berita['slug'] ?>'">
+                    <a class="news-card" href="berita-detail.php?slug=<?= urlencode($berita['slug']) ?>" aria-label="Baca berita: <?= htmlspecialchars($berita['judul']) ?>">
                         <div class="news-image">
                             <img src="<?= getImagePath($berita['gambar'], $berita['media_id'], $berita['judul']) ?>" 
                                  alt="<?= htmlspecialchars($berita['judul']) ?>"
@@ -984,9 +986,9 @@ $bulan_list = [
                                 <?php endif; ?>
                             </div>
                             <h3 class="news-title">
-                                <a href="berita-detail.php?slug=<?= $berita['slug'] ?>">
+                                <span>
                                     <?= htmlspecialchars($berita['judul']) ?>
-                                </a>
+                                </span>
                             </h3>
                             <p class="news-excerpt">
                                 <?php 
@@ -994,11 +996,11 @@ $bulan_list = [
                                 echo htmlspecialchars($excerpt);
                                 ?>
                             </p>
-                            <a href="berita-detail.php?slug=<?= $berita['slug'] ?>" class="read-more">
+                            <span class="read-more">
                                 <i class="fas fa-newspaper"></i> Baca Selengkapnya
-                            </a>
+                            </span>
                         </div>
-                    </article>
+                    </a>
                     <?php endforeach; ?>
                 </div>
 
@@ -1051,6 +1053,7 @@ $bulan_list = [
     </section>
 
     <script src="assets/js/mobile-nav.js"></script>
+    <script src="assets/js/audit-fixes.js"></script>
 
     <script>
         // Auto-submit form on Enter key

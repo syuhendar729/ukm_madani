@@ -149,6 +149,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <link href="assets/css/mobile-nav.css" rel="stylesheet">
+    <link href="assets/css/audit-fixes.css" rel="stylesheet">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dokumentasi Kegiatan - UKM Madani</title>
@@ -792,8 +793,9 @@ try {
                     <li><a href="berita.php" class="nav-link">Berita</a></li>
                     <li><a href="artikel.php" class="nav-link">Artikel</a></li>
                     <li><a href="galeri.php" class="nav-link" style="color: var(--primary-color);">Galeri</a></li>
-                    <li><a href="index.php#contact" class="nav-link back-link">
-                        <i class="fas fa-arrow-left"></i> Kembali
+                    <li><a href="index.php#donation" class="nav-link">Infaq</a></li>
+                    <li><a href="index.php#contact" class="nav-link">
+                        <i class="fas fa-envelope"></i> Kontak
                     </a></li>
                 </ul>
 
@@ -817,8 +819,8 @@ try {
                     <li><a href="index.php#donation" class="nav-link">
                         <i class="fas fa-hand-holding-heart"></i> Infaq
                     </a></li>
-                    <li><a href="index.php" class="nav-link back-link">
-                        <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+                    <li><a href="index.php#contact" class="nav-link">
+                        <i class="fas fa-envelope"></i> Kontak
                     </a></li>
                 </ul>
             </div>
@@ -986,6 +988,7 @@ try {
 
 <!-- Mobile Navigation JavaScript -->
 <script src="assets/js/mobile-nav.js"></script>
+<script src="assets/js/audit-fixes.js"></script>
 
 <script>
     // Gallery functions
