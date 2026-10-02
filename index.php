@@ -662,6 +662,7 @@ try {
             grid-template-columns: 1fr 1fr;
             gap: clamp(30px, 8vw, 60px);
             align-items: center;
+            overflow-x: clip;
         }
 
         .about-text h3 {
@@ -1206,6 +1207,7 @@ try {
             grid-template-columns: 1fr 1fr;
             gap: clamp(30px, 8vw, 60px);
             align-items: stretch;
+            overflow-x: clip;
         }
 
         .donation-form,
@@ -2938,4 +2940,4 @@ try {
         }
     </script>
 </body>
-</html>
+</html> 
